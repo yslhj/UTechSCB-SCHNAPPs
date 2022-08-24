@@ -40,6 +40,7 @@ schnapps <- function(localContributionDir = "~/Rstudio/shHubgit/Dummy/",
                      DEBUGSAVE = FALSE,
                      historyPath = NULL,
                      defaultValues = list(),
+                     host = NULL,
                      port = NULL
                      # ,
                      # historyFile = NULL
@@ -80,7 +81,7 @@ schnapps <- function(localContributionDir = "~/Rstudio/shHubgit/Dummy/",
   source(paste0(packagePath, "/server.R"), local = TRUE)
   source(paste0(packagePath, "/ui.R"), local = TRUE)
   app <- shinyApp(ui = scShinyUI, server = scShinyServer)
-  runApp(app, port = port)
+  runApp(app, host = host, port = port, launch.browser = FALSE)
 }
 
 # library(SCHNAPPs)
